@@ -43,7 +43,14 @@ Rodrigo Paz Ramirez
     * Identify and handle blank spaces in the DataFrame, which represent NaN values. In this case, if there are rows with missing information denoted by blank spaces in the Volume, Avg Vol 3 Months, and Market Cap columns, remove those rows. This step ensures that the dataset is free of incomplete or ambiguous data, creating a cleaner and more reliable dataset for analysis.
 4. Time Indicator Column:
     * Add a new column to the dataset that represents the timestamp or date of the data. This column could be in the 'yyyy/mm/dd' format, indicating the year, month, and day when the data was collected. This time indicator column provides a reference point for when each set of data was recorded.
-5. 
+5. Grouping by Company:
+      * Group the main DataFrame by the 'Company' column. This will create separate groups, each corresponding to a unique company.
+6. Iterating Through Groups:
+      * Iterate through each group and create a new DataFrame for each company.
+7. Saving as CSV:
+      * For each company DataFrame, save it as a CSV file, where the filename could be based on the company name or a unique identifier.
+8. Scheduled CSV Update:
+      * Implement a function that includes the steps to update and save the CSV files. Then, schedule this function to run at regular intervals.
 ### Database
 
 
