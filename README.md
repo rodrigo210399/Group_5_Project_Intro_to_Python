@@ -50,7 +50,7 @@ Rodrigo Paz Ramirez
 7. Saving as CSV:
       * For each company DataFrame, save it as a CSV file, where the filename could be based on the company name or a unique identifier.
 8. Scheduled CSV Update:
-      * Implement a function that includes the steps to update and save the CSV files. Then, schedule this function to run at regular intervals.
+      * Implement a function that includes the steps to update and save the CSV files. Then, schedule this function to run at regular intervals of 2 min.
 ### Database
 
 
