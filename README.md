@@ -95,9 +95,11 @@ It is a measure of the total value of a publicly traded company's outstanding sh
 
 ## Challenges 
 ### Data Collection
-1. Go across many pages to reach 
+1. Go across many pages to reach all the data upto the tenth page.
+2. Find the html table indicators to reach the information needed.
 
 ### Data Processing
+1. 
 
 ### Data to Dataframes
 
