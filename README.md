@@ -119,7 +119,8 @@ It is a measure of the total value of a publicly traded company's outstanding sh
 
 
 ## Future Goals
-Make the page update by itself intead of pressing F5 to show the updated data.
+1. Make the page update by itself intead of pressing F5 to show the updated data.
+2. Not only scrap top gainers companies, also top losers or any other category in the stock market.
 
 
 
