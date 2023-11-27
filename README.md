@@ -94,7 +94,16 @@ It is a measure of the total value of a publicly traded company's outstanding sh
 (fill in what you discovered this data could tell you and how you used the data to answer those questions)
 
 ## Challenges 
-(discuss challenges you faced in the project)
+### Data Collection
+1. Go across many pages to reach 
+
+### Data Processing
+
+### Data to Dataframes
+
+### Data to Databases
+
+### Website
 
 ## Future Goals
-(what would you do if you had more time?)
+Make the page update by itself intead of pressing F5 to show the updated data.
