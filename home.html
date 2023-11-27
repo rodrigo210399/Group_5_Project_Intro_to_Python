@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    
+</head>
+<body>
+
+<h1>Top Gainers Companies</h1>
+
+<!-- Selector for columns -->
+<form action="{{ url_for('visualization') }}" method="get" onsubmit="return updateVisualization()">
+    <label for="company">Select a Company:</label>
+    <select name="company" id="company-selector">
+        {% for company in companies %}
+            <option value="{{ company }}">{{ company }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="column">Select a Column:</label>
+    <select name="column" id="column-selector">
+        {% for column in columns %}
+            <option value="{{ column }}">{{ column }}</option>
+        {% endfor %}
+    </select>
+
+    <input type="submit" value="Visualize">
+</form>
+
+<!-- Link to About page -->
+<p><a href="{{ url_for('about') }}">About This Project</a></p>
+
+<!-- Display last update time and current time -->
+<p>Last data update: <span id="last-update-time">{{ last_update_time }}</span></p>
+<p>Current time: <span id="current-time-home"></span></p>
+
+<!-- JavaScript to update current time and selected column -->
+<script>
+    function updateCurrentTimeHome() {
+        var currentTimeSpan = document.getElementById('current-time-home');
+        var currentTime = new Date();
+        var hours = currentTime.getHours().toString().padStart(2, '0');
+        var minutes = currentTime.getMinutes().toString().padStart(2, '0');
+        var seconds = currentTime.getSeconds().toString().padStart(2, '0');
+        currentTimeSpan.innerText = hours + ':' + minutes + ':' + seconds;
+        // currentTimeSpan.innerText = currentTime.toLocaleTimeString(); 
+    }
+
+    function updateVisualization() {
+        var companySelector = document.getElementById('company-selector');
+        var columnSelector = document.getElementById('column-selector');
+        var selectedCompany = companySelector.options[companySelector.selectedIndex].text;
+        var selectedColumn = columnSelector.options[columnSelector.selectedIndex].text;
+
+        // Manually navigate to the visualization page
+        window.location.href = `/visualization?company=${selectedCompany}&column=${selectedColumn}`;
+
+        return false;  // Prevent the form from actually submitting
+    }
+
+    // Update current time every second
+    setInterval(updateCurrentTimeHome, 1000);
+
+    // Initial update
+    updateCurrentTimeHome();
+</script>
+<p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+</p>
+</body>
+</html>

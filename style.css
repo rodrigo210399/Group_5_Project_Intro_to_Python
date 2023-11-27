@@ -1,0 +1,83 @@
+body {
+    font-family: 'Arial', sans-serif;
+    color: orange;
+    margin: 30px;
+    background-image: url('/static/neural-network.gif');  /* Update the path to your image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat-y;
+}
+
+h1 {
+    color: #2a7cb3;
+    font-family: cursive;
+    font-size: 100px;
+}
+
+h2{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+select, input {
+    padding: 5px;
+    margin-right: 10px;
+}
+
+#current-time-visualization {
+    font-weight: bold;
+    
+}
+
+#current-time-home {
+    font-weight: bold;
+    font-family: 'cursive';
+}
+
+#current-time-about {
+    font-weight: bold;
+}
+
+
+#visualization-container {
+    margin-top: 20px;
+}
+
+a {
+    color: #ffffff; /* Set the color to white using a hexadecimal code or other color format */
+    text-decoration: none; /* Remove underlines from links */
+}
+
+a:hover {
+    color: #ff4400; /* Set the color for links when hovered */
+}
+
+/* Style for selectors */
+select {
+    background-color:darkturquoise ; /* Change this to your desired background color */
+    color:blue; /* Change this to your desired text color */
+}
+
+/* Style for options within selectors */
+select option {
+    background-color: #333; /* Change this to your desired background color */
+    color: white; /* Change this to your desired text color */
+}
+
+
+/* For WebKit browsers (e.g., Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(6, 17, 134); /* Change this to your desired color */
+    border-radius: 3px;
+}

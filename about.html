@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+
+    <h1>About This Project</h1>
+
+
+    <!-- Link to Home page -->
+    <p><a href="{{ url_for('home') }}">Return to Home</a></p>
+
+    <!-- Display last update time and current time -->
+    <p> <span style="font-size: 25px; color: aqua;">Last data update: </span><span id="last-update-time" style="font-size: 25px; color: aqua;">{{ last_update_time }}</span></p>
+    <p> <span style="font-size: 25px; color: aqua;">Current time: </span><span id="current-time-about" style="font-size: 25px; color: aqua;"></span></p>
+
+    <!-- JavaScript to update current time -->
+    <script>
+        window.onload = function() {
+            function updateCurrentTimeAbout() {
+                var currentTimeSpan = document.getElementById('current-time-about');
+                var currentTime = new Date();
+                var hours = currentTime.getHours().toString().padStart(2, '0');
+                var minutes = currentTime.getMinutes().toString().padStart(2, '0');
+                var seconds = currentTime.getSeconds().toString().padStart(2, '0');
+                currentTimeSpan.innerText = hours + ':' + minutes + ':' + seconds;
+                //currentTimeSpan.innerText = currentTime.toLocaleTimeString();
+            }
+
+            // Update current time every second
+            setInterval(updateCurrentTimeAbout, 1000);
+
+            // Initial update
+            updateCurrentTimeAbout();
+        };
+    </script>
+
+    <!-- Project Description -->
+    <p style="text-align: justify;">
+        This website is a Flask web application that visualizes data from the stock market from 
+        <a href="https://finance.yahoo.com/gainers/" target="_blank">Yahoo Finance Top gainers</a>
+        companies . updates itself every 2 minutes following a specific schedule from 10:00 to 16:00 in 
+        weekdays when the stock market is open. 
+    </p>
+
+    <p style="text-align: justify;">
+        It has three main pages, 
+        
+        <ul>
+            <li><h4> Home Page: </h4></li>
+            Where you can select the company an the feature you want.
+            <br>
+            <br>
+            <li> <h4> About Page </h4></li>
+            The page you are reading this and also gives you an explanation about how 
+            the website works.
+            <br>
+            <br>
+            <li> <h4> Visualization Page </h4></li>
+            Where it can be seen one of this features for each company (Last Price, Volume,
+            Change, Percent Change and Market Cap). Also when you are in the visualization
+            page you can select another features for the same company and the last update time 
+            when the data was updated. 
+            <br>
+            If you have been watching a plot for a long time a not noticing any change in the plot, 
+            please refresh the page, sometimes the server has too many requests so it is difficult
+            to manage all of them at the same time.
+            
+            <br>
+            <br>
+
+
+        </ul>
+    
+        <h2> Description: </h2>
+        <ul>
+
+            <h3><li> Last Price </li></h3>
+        
+            Data that helps to track the recent performance of a stock and make informed decisions 
+            based on its current market value. It represents the most recent transaction price at 
+            which the stock was bought or sold.
+
+            <h3><li> Volume </li></h3>
+
+            Total number of shares of a security (such as a stock) that have been traded during a 
+            specific period of time, typically over a trading day. It is a measure of market 
+            activity and liquidity, providing insights into the level of interest and participation 
+            in a particular stock.
+
+            <h3><li> Change </li></h3>
+            Difference in the price from the initial value in the day.
+            Positive difference change indicates an increase in value, 
+            while negative difference change indicates a decrease.
+            <br>
+            <br>
+            <p style="text-align: center;">
+                \(Change= Final\,\,Value - Initial\,\,Value\)
+            </p>
+
+            <h3><li> Percent Change </li></h3>
+            Indicate the magnitude of the price movement relative to the starting point. 
+            Positive percentage change indicates an increase in value, while negative 
+            percentage change indicates a decrease. This feature is more used then only 
+            change because it gives an adimensional parameter to compare against other companies.
+            <br>
+            <br>
+
+            <p style="text-align: center;">
+                \(
+                Percent\,\,Change = \left(\frac{Final\,\,Value-Initial\,\,Value}{Initial\,\,Value} 
+                \right)
+            \)
+            </p>
+
+            <h3><li> Market Cap </li></h3>
+            It is a measure of the total value of a publicly traded company's outstanding shares of stock. 
+            It is calculated by multiplying the current market price of one share by the total number 
+            of outstanding shares. Market cap is a key indicator used by investors to assess the size
+            and relative value of a company in the financial markets.
+
+            <p style="text-align: center;">
+                \(
+                Market\,\,Cap = 
+                Current\,\,Market\,\,Price\,\,per\,\,Share 
+                \times
+                Total\,\,Number\,\,of\,\,Outstanding\,\,Shares
+            \)
+            </p>
+
+
+
+        </ul>
+    
+    </p>
+
+
+
+    <!-- Link to Home page -->
+    <p><a href="{{ url_for('home') }}">Return to Home</a></p>
+
+    <!-- Display last update time and current time --> 
+    <p> <span style="font-size: 25px; color: aqua;">Last data update: </span><span id="last-update-time" style="font-size: 25px; color: aqua;;">{{ last_update_time }}</span></p>
+    <!-- JavaScript to update current time -->
+    <script>
+        window.onload = function() {
+            function updateCurrentTimeAbout() {
+                var currentTimeSpan = document.getElementById('current-time-about');
+                var currentTime = new Date();
+                var hours = currentTime.getHours().toString().padStart(2, '0');
+                var minutes = currentTime.getMinutes().toString().padStart(2, '0');
+                var seconds = currentTime.getSeconds().toString().padStart(2, '0');
+                currentTimeSpan.innerText = hours + ':' + minutes + ':' + seconds;
+                //currentTimeSpan.innerText = currentTime.toLocaleTimeString();
+            }
+
+            // Update current time every second
+            setInterval(updateCurrentTimeAbout, 1000);
+
+            // Initial update
+            updateCurrentTimeAbout();
+        };
+    </script>
+
+</body>
+</html>

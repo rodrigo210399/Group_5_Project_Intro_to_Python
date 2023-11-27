@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualization</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- Plot -->
+    {{ plot_html|safe }}
+
+    <!-- Concise explanation below the plot -->
+    <p>{{ concise_explanation }}</p>
+
+    <!-- Selector for choosing different features -->
+    <form action="{{ url_for('visualization') }}" method="get">
+        <label for="column">Select a Different Feature:</label>
+        <select name="column">
+            {% for column in allowed_columns %}
+                <option value="{{ column }}" {% if column == selected_column %}selected{% endif %}>{{ column }}</option>
+            {% endfor %}
+        </select>
+
+        <input type="hidden" name="company" value="{{ company }}">
+        <input type="submit" value="Visualize">
+    </form>
+
+    <!-- Link to About page -->
+    <p><a href="{{ url_for('about') }}">About This Project</a></p>
+
+    <!-- Link to Home page -->
+    <p><a href="{{ url_for('home') }}">Return to Home</a></p>
+
+    <!-- Display last update time and current time -->
+    <p>Last data update: <span id="last-update-time">{{ last_update_time }}</span></p>
+    <p>Current time: <span id="current-time-visualization"></span></p>
+
+    <!-- JavaScript to update current time -->
+    <script>
+        function updateCurrentTimeVisualization() {
+            var currentTimeSpan = document.getElementById('current-time-visualization');
+            var currentTime = new Date();
+            var hours = currentTime.getHours().toString().padStart(2, '0');
+            var minutes = currentTime.getMinutes().toString().padStart(2, '0');
+            var seconds = currentTime.getSeconds().toString().padStart(2, '0');
+            currentTimeSpan.innerText = hours + ':' + minutes + ':' + seconds;
+            //currentTimeSpan.innerText = currentTime.toLocaleTimeString();
+        }
+
+        // Update current time every second
+        setInterval(updateCurrentTimeVisualization, 1000);
+
+        // Initial update
+        updateCurrentTimeVisualization();
+    </script>
+<!-- Additional script to change title color -->
+<script>
+    // Change title color to #2a7cb3
+    document.querySelector('.js-plotly-plot .plot-container .plot .plot-title text').style.fill = '#2a7cb3';
+</script>
+<p>
+<br>
+<br>
+<br>
+
+
+</p>
+</body>
+</html>
