@@ -1,1 +1,15 @@
-gg changes
+requests
+bs4
+pandas
+subprocess
+datetime
+os
+sqlite3
+pytz
+time
+flask
+plotly.express
+plotly.graph_objects
+plotly.io
+apscheduler.schedulers.background
+
