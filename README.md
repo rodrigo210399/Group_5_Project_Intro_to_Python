@@ -78,6 +78,7 @@ If you have been watching a plot for a long time a not noticing any change in th
 Data that helps to track the recent performance of a stock and make informed decisions based on its current market value. It represents the most recent transaction price at which the stock was bought or sold.
 ### Volume
 Total number of shares of a security (such as a stock) that have been traded during a specific period of time, typically over a trading day. It is a measure of market activity and liquidity, providing insights into the level of interest and participation in a particular stock.
+
 ### Change
 Difference in the price from the initial value in the day. Positive difference change indicates an increase in value, while negative difference change indicates a decrease.
 
@@ -85,7 +86,7 @@ Difference in the price from the initial value in the day. Positive difference c
 Indicate the magnitude of the price movement relative to the starting point. Positive percentage change indicates an increase in value, while negative percentage change indicates a decrease. This feature is more used then only change because it gives an adimensional parameter to compare against other companies.
 
 
-Market Cap
+### Market Cap
 It is a measure of the total value of a publicly traded company's outstanding shares of stock. It is calculated by multiplying the current market price of one share by the total number of outstanding shares. Market cap is a key indicator used by investors to assess the size and relative value of a company in the financial markets.
 
 
