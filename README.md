@@ -99,13 +99,41 @@ It is a measure of the total value of a publicly traded company's outstanding sh
 2. Find the html table indicators to reach the information needed.
 
 ### Data Processing
-1. 
+1. Blank Spaces Management
+2. Transform summarized values as 4.6B to 4,600'000,000 to make it usable.
+3. Transform the percentage string to a usable parameter, p.e. +19.83% to 0.1983
+4. Round all the decimals to only two decimals for an easier visualization. 
 
 ### Data to Dataframes
+1. This process was done to separate the information per company because the scrapped data was a dataframe where each row was a different company. So, it was needed to save each row in their respective csv file with the format name: {company_symbol}_data.csv
+2. Add the updated scrapped data to each csv or create a new one if a company were not in the csv folder before.
+3. Erase all the duplicated rows so the data that was readded accidentaly could be deleted. 
 
-### Data to Databases
+### Dataframes to Databases
+1. Convert each csv into a database usable for the webpage
 
 ### Website
+1. Create a website that let you choose the company and the feature you want to see.
+2. When you go to the respective visualization then you can choose another feature from the same company only, if you want to see another company then you have to return to the home page.
+3. Show the current time and then the last update time.
+
 
 ## Future Goals
 Make the page update by itself intead of pressing F5 to show the updated data.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
