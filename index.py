@@ -43,14 +43,18 @@ def home():
     companies = app.config.get('companies', [])
     columns = app.config.get('columns', [])
 
-    last_update_time = app.config.get('last_update_time', 'Not available')
-    
+    last_update_time = pd.to_datetime(app.config.get('last_update_time', 'Not available'))
     # Get the current time
     current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
     # Print the companies and columns to check
     #print("Companies:", companies)
     #print("Columns:", columns)
+    if pd.to_datetime('10:00:00') < last_update_time < pd.to_datetime('16:00:00'):
+        pass
+    else:
+        last_update_time = pd.to_datetime('16:00:00')
+
 
     # Render the HTML template with the list of companies, columns, last update time, and current time
     return render_template('home.html', companies=companies, columns=columns,
@@ -71,7 +75,8 @@ def visualization():
         df.reset_index(drop=True, inplace=True)
 
         # Calculate the time difference between each row and the last update time
-        last_update_time = pd.to_datetime(app.config.get('last_update_time'))
+        last_update_time = pd.to_datetime(app.config.get('last_update_time', 'Not Time Available'))
+
         if pd.to_datetime('10:00:00') < last_update_time < pd.to_datetime('16:00:00'):
             df['TimeDifference'] = - pd.to_timedelta(df.index.size - df.index.to_series().rank(method='first') , unit='m') + last_update_time
         else:
@@ -145,10 +150,10 @@ def visualization():
         )
 
         # Set the x-axis range from start_time to 5 minutes after the last update time
-        if pd.to_datetime('10:00:00') < last_update_time < pd.to_datetime('17:00:00'):
+        if pd.to_datetime('10:00:00') < last_update_time < pd.to_datetime('16:00:00'):
             fig.update_xaxes(range=[start_time, last_update_time + pd.Timedelta(minutes=5)])
         else:
-            end_time = pd.to_datetime('16:00:00') - len(df) * pd.Timedelta(minutes=1)
+            end_time = pd.to_datetime('16:00:00') - (len(df)-1) * pd.Timedelta(minutes=1)
             fig.update_xaxes(range=[end_time, pd.to_datetime('16:00:00')])
 
         # Set the x-axis range from start_time to 5 minutes after the last update time
@@ -168,7 +173,10 @@ def visualization():
         allowed_columns = ['Last Price', 'Change', 'Percent Change', 'Volume', 'Market Cap']
 
         # Get the last update time from the app's context
-        last_update_time = app.config.get('last_update_time', 'Not available')
+        if pd.to_datetime('10:00:00') < last_update_time < pd.to_datetime('16:00:00'):
+            pass
+        else:
+            last_update_time = pd.to_datetime('16:00:00')
 
         # Render the HTML template with the plot, concise explanation, selected column, and last update time
         return render_template('visualization.html', plot_html=plot_html,
@@ -183,8 +191,12 @@ def visualization():
 @app.route('/about')
 def about():
     # Retrieve the last update time and current time from the app's context
-    last_update_time = app.config.get('last_update_time', 'Not available')
+    last_update_time = pd.to_datetime(app.config.get('last_update_time', 'Not available'))
     current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    if pd.to_datetime('10:00:00') < last_update_time < pd.to_datetime('16:00:00'):
+        pass
+    else:
+        last_update_time = pd.to_datetime('16:00:00')
 
     # Render the HTML template with the last update time and current time
     return render_template('about.html', last_update_time=last_update_time, current_time=current_time)
