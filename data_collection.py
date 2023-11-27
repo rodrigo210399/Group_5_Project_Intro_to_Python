@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 
-# Define a function to scrape the top stock gainers from a specific page.
+# Define a function to scrape the top stock gainers from yahoo finance
 def scrape_gainers_page(page_number):
     url = f"https://finance.yahoo.com/gainers?offset={page_number * 25}"
     response = requests.get(url)
