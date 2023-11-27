@@ -28,7 +28,7 @@ while True:
         print("Within the specified time range. Running jobs...")
         job()
     else:
-        print("Not within the specified time range.")
+        print("The Stock Market is closed.")
 
     # Sleep for 2 minutes before checking again
     time.sleep(120)
