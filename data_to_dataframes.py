@@ -8,7 +8,7 @@ file_to_execute = 'data_processing.py'
 # Use subprocess to execute the file
 subprocess.run(['python', file_to_execute])
 
-# Read the csv file associated with the market top gainers
+# Read the csv file associated with the market top gainers processed values.
 df = pd.read_csv("top_gainers_processed.csv")
 # Create a directory to store the databases if it does not exist
 database_dir = 'company_datasets'
