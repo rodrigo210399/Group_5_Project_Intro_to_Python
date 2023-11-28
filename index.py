@@ -47,7 +47,7 @@ def home():
     # Get the current time
     current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
-    # Print the companies and columns to check
+    # Print the companies and columns to check the output
     #print("Companies:", companies)
     #print("Columns:", columns)
     if pd.to_datetime('10:00:00') < last_update_time < pd.to_datetime('16:00:00'):
@@ -60,7 +60,7 @@ def home():
     return render_template('home.html', companies=companies, columns=columns,
                            last_update_time=last_update_time, current_time=current_time)
 
-# Visualization route
+# Visualization route (to see the plots)
 @app.route('/visualization', methods=['GET', 'POST'])
 def visualization():
     if request.method == 'GET':
@@ -87,7 +87,7 @@ def visualization():
         # Calculate the start time based on the length of the DataFrame
         start_time = last_update_time - len(df)*pd.Timedelta(minutes=1)
 
-        # Create a histogram using Plotly Express
+        # Create a histogram using Plotly Express instead of a line plot
         #fig = px.histogram(df, x='TimeDifference', y=selected_column, nbins=len(df),
         #                   title=f'{selected_column} Visualization for {df["Name"][0]}')
 
@@ -150,13 +150,14 @@ def visualization():
         )
 
         # Set the x-axis range from start_time to 5 minutes after the last update time
+        # Stop the axis updates if the last_update_time is not within 10 and 16 time.
         if pd.to_datetime('10:00:00') < last_update_time < pd.to_datetime('16:00:00'):
             fig.update_xaxes(range=[start_time, last_update_time + pd.Timedelta(minutes=5)])
         else:
             end_time = pd.to_datetime('16:00:00') - (len(df)-1) * pd.Timedelta(minutes=1)
             fig.update_xaxes(range=[end_time, pd.to_datetime('16:00:00')])
 
-        # Set the x-axis range from start_time to 5 minutes after the last update time
+        # Set the y-axis range from the 95% below of the minimum value and go upto 5% above the maximum value.
         fig.update_yaxes(range=[.95*min(df[selected_column]), 1.05*max(df[selected_column])])
 
 
@@ -166,8 +167,8 @@ def visualization():
 
         # Concise explanation below the plot
         concise_explanation = (f"This plot shows the {selected_column}'s "
-                               f"evolution for the company {df['Name'][0]} ({company}) "
-                               f"from Today and yesterday's data.")
+                               f"evolution for the company {df['Name'][0]} (Symbol: {company}) "
+                               f"for todays data.")
 
         # Define the allowed columns for the selector
         allowed_columns = ['Last Price', 'Change', 'Percent Change', 'Volume', 'Market Cap']
