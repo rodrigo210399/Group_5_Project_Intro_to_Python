@@ -3,6 +3,7 @@ import subprocess
 from datetime import datetime, timedelta
 import pytz
 
+# Define a function to start running the other programs to update the data
 def job():
     print("Running your program...")
     subprocess.run(['python', 'data_to_dataframes.py'], capture_output=True, text=True)
@@ -12,15 +13,15 @@ def job():
     print("Result for dataframes_to_database.py")
 
 # Set the time zone to Eastern Time (Toronto/Windsor)
-ontario_timezone = pytz.timezone("America/Toronto")
+toronto_timezone = pytz.timezone("America/Toronto")
 
-# Define the start and end times in Ontario time zone
-today = datetime.now(ontario_timezone).replace(hour=0, minute=0, second=0, microsecond=0)
+# Define the start and end times in Toronto time zone
+today = datetime.now(toronto_timezone).replace(hour=0, minute=0, second=0, microsecond=0)
 start_time = today + timedelta(hours=10)
 end_time = today + timedelta(hours=16)
 
 while True:
-    current_time = datetime.now(ontario_timezone)
+    current_time = datetime.now(toronto_timezone)
 
     # Check if the current time is within the specified time range
     print(f"Current time: {current_time}")
