@@ -2,13 +2,13 @@ import os
 import pandas as pd
 import sqlite3
 
-# Path to the folder containing CSV files
+# Path to the folder containing CSV files (company_datasets)
 csvs_folder = 'company_datasets'
 
-# Path to the folder where SQLite files will be saved
+# Path to the folder where SQLite files will be saved (company_databases)
 sqlite_folder = 'company_databases'
 
-# Get the current working directory (where the Jupyter notebook is located)
+# Get the current working directory (where the this file is located)
 current_directory = os.getcwd()
 
 # Full paths to the CSV and SQLite folders
