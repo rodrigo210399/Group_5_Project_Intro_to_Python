@@ -10,7 +10,7 @@ Rodrigo Paz Ramirez
 ## Project/Goals
 1. Develop a website capable of autonomously updating information on the top 250 gainers in the financial market.
 
-2. Implement a reliable web scraping mechanism to extract relevant data from 'https://finance.yahoo.com/gainers.'
+2. Implement a reliable web scraping mechanism to extract relevant data from [Yahoo Finance Top Gainers](https://finance.yahoo.com/gainers.)
 
 3. Perform thorough data processing, including cleaning, organizing, and transforming the scraped data into a structured format.
 
@@ -121,6 +121,7 @@ It is a measure of the total value of a publicly traded company's outstanding sh
 ## Future Goals
 1. Make the page update by itself intead of pressing F5 to show the updated data.
 2. Not only scrap top gainers companies, also top losers or any other category in the stock market.
+3. Make it look at the original website ([Yahoo Finance Top Gainers](https://finance.yahoo.com/gainers.)), showing only the Today's Top Gainers Companies by erasing the database at the opening of the market.
 
 
 
