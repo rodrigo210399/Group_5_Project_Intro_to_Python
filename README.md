@@ -123,6 +123,7 @@ It is a measure of the total value of a publicly traded company's outstanding sh
 1. Make the page update by itself intead of pressing F5 to show the updated data.
 2. Not only scrap top gainers companies, also top losers or any other category in the stock market.
 3. Make it look at the original website ([Yahoo Finance Top Gainers](https://finance.yahoo.com/gainers.)), showing only the Today's Top Gainers Companies by erasing the database at the opening of the market.
+4. Implement a M.L. model to predict if the Last Price will go up or down.
 
 
 
