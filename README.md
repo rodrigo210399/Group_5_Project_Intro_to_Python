@@ -3,8 +3,7 @@ DAB111-004: Group Project
 
 Students: 
 
-Navjot Kaur
-
+Navjot Kaur\n
 Pawan Kumar
 Sandeep Sandeep
 Rodrigo Paz Ramirez
