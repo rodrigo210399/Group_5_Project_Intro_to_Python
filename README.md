@@ -3,10 +3,10 @@ DAB111-004: Group Project
 
 Students: 
 
-* Navjot Kaur
-* Pawan Kumar
-* Sandeep Sandeep
-* Rodrigo Paz Ramirez
+* Navjot Kaur (0836667)
+* Pawan Kumar (0824811)
+* Sandeep Sandeep (0802301)
+* Rodrigo Paz Ramirez (0848234)
 
 ## Project/Goals
 1. Develop a website capable of autonomously updating information on the top 250 gainers in the financial market.
