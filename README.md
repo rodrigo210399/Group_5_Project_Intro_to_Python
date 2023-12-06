@@ -9,7 +9,7 @@ Students:
 * Rodrigo Paz Ramirez (0848234)
 
 ## Project/Goals
-1. Develop a website capable of autonomously updating information on the top 250 gainers in the financial market.
+1. Develop a website capable of autonomously updating information on the top 50 gainers in the financial market.
 
 2. Implement a reliable web scraping mechanism to extract relevant data from [Yahoo Finance Top Gainers](https://finance.yahoo.com/gainers.)
 
