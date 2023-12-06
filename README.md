@@ -5,7 +5,7 @@ Students:
 
 * Navjot Kaur
 * Pawan Kumar
-* Sandeep Sandeep\n
+* Sandeep Sandeep
 * Rodrigo Paz Ramirez
 
 ## Project/Goals
