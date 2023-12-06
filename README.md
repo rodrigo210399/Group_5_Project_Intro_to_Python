@@ -23,6 +23,11 @@ Students:
    
 8. Implement real-time plot updates to visually represent changes in the top gainers, and allow users to explore more accurate and precise data by providing the option to view information on a per-company basis. This feature enhances the user's ability to analyze individual companies within the financial market dynamically.
 
+# How to use the code.
+## Run the `dataframe_updating.py`as a python file running in the terminal python dataframe_updating.py. This will start to scrape the data from [Yahoo Finance Top Gainers](https://finance.yahoo.com/gainers.) and updating the database.
+
+## Run the index.py with the debugging tool to start the flask application and click in the link the terminal shows up.
+
 
 # Process
 ## Data Collection
