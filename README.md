@@ -1,11 +1,7 @@
 # Group_5_Project_Intro_to_Python
 DAB111-004: Group Project
 
-Students: 
-
-* Navjot Kaur (0836667)
-* Pawan Kumar (0824811)
-* Sandeep Sandeep (0802301)
+Student:
 * Rodrigo Paz Ramirez (0848234)
 
 ## Project/Goals
